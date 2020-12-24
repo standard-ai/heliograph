@@ -1,0 +1,15 @@
+[package]
+name = "heliograph"
+version = "0.1.0"
+authors = ["Léo Gaspard <leo@standard.ai>"]
+edition = "2018"
+
+[dependencies]
+bitflags = "1.2.1"
+libc = "0.2.81"
+nix = "0.19.1"
+
+[dev-dependencies]
+caring = "0.3.0"
+sendfd = "0.3.3"
+tempfile = "3.1.0"
