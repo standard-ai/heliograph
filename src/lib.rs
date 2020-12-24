@@ -212,7 +212,6 @@ impl Semaphore {
         exclusive: Exclusive,
         mode: Mode,
     ) -> io::Result<Semaphore> {
-        #[allow(clippy::unusual_byte_groupings)]
         let flags = (mode.bits() & 0b111_111_111) as i32
             | libc::IPC_CREAT
             | match exclusive {
@@ -441,8 +440,7 @@ mod tests {
             io::{AsRawFd, IntoRawFd},
             net,
         },
-        process,
-        ptr,
+        process, ptr,
         sync::{
             atomic::{AtomicBool, Ordering},
             Arc,

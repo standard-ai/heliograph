@@ -1,0 +1,30 @@
+name: Tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  cargo-fmt:
+    name: Cargo Fmt And Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --all --all-features -- -D warnings
+
+  cargo-tests:
+    name: Cargo Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cargo build --all --all-features
+      - run: cargo test --all --all-features
+      - run: cargo doc --all --all-features
