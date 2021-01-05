@@ -212,7 +212,8 @@ impl Semaphore {
         exclusive: Exclusive,
         mode: Mode,
     ) -> io::Result<Semaphore> {
-        let flags = (mode.bits() & 0b111_111_111) as i32
+        // Only consider flags from `mode` that are actually permission bits
+        let flags = (mode.bits() & 0o777) as i32
             | libc::IPC_CREAT
             | match exclusive {
                 Exclusive::Yes => libc::IPC_EXCL,
