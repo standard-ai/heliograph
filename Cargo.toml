@@ -3,6 +3,13 @@ name = "heliograph"
 version = "0.1.0"
 authors = ["Léo Gaspard <leo@standard.ai>"]
 edition = "2018"
+description = "Medium-level bindings to System V semaphores"
+categories = ["os", "os::unix-apis"]
+keywords = ["ipc", "systemv", "sysv", "semaphore"]
+license = "Apache-2.0 OR BSD-3-Clause"
+homepage = "https://github.com/standard-ai/heliograph"
+repository = "https://github.com/standard-ai/heliograph"
+documentation = "https://docs.rs/heliograph"
 
 [dependencies]
 bitflags = "1.2.1"
